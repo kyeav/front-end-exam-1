@@ -15,41 +15,39 @@ import {
 } from 'date-fns';
 import { useState } from 'react';
 
-const classNames = (...classes: any[]) => {
-  return classes.filter(Boolean).join(' ');
-};
+const classNames = (...classes: (string | boolean)[]) => classes.filter(Boolean).join(' ');
 
-export const Calendar = () => {
+export default function Calendar(): JSX.Element {
   const today = startOfToday();
-  console.log(today);
+  // console.log(today);
 
   const [currentMonth, setCurrentMonth] = useState(today);
-  console.log(currentMonth);
+  // console.log(currentMonth);
 
-  console.log(format(currentMonth, 'MMM, yyyy'));
-  console.log(format(currentMonth, 'MMMM yyyy'));
+  // console.log(format(currentMonth, 'MMM, yyyy'));
+  // console.log(format(currentMonth, 'MMMM yyyy'));
 
   const firstDayCurrentMonth = startOfMonth(currentMonth);
-  console.log(firstDayCurrentMonth);
+  // console.log(firstDayCurrentMonth);
 
   const lastDayOfCurrentMonth = endOfMonth(currentMonth);
-  console.log(lastDayOfCurrentMonth);
+  // console.log(lastDayOfCurrentMonth);
 
   const days = eachDayOfInterval({
     start: startOfWeek(firstDayCurrentMonth),
     end: endOfWeek(lastDayOfCurrentMonth),
   });
 
-  console.log(days);
-  console.log(startOfWeek(firstDayCurrentMonth));
-  console.log(endOfWeek(lastDayOfCurrentMonth));
+  // console.log(days);
+  // console.log(startOfWeek(firstDayCurrentMonth));
+  // console.log(endOfWeek(lastDayOfCurrentMonth));
 
   const [selectedDay, setSelectedDay] = useState(today);
-  console.log(selectedDay);
+  // console.log(selectedDay);
 
   const [showYearPicker, setShowYearPicker] = useState(false);
 
-  const [currentYear, setCurrentYear] = useState(today);
+  // const [currentYear, setCurrentYear] = useState(today);
 
   return (
     <div className="absolute w-[320px] h-[469px] bg-[#1b1b1b] shadow-[4px_4px_20px_rgba(0,0,0,0.3)] rounded-[10px]">
@@ -151,4 +149,4 @@ export const Calendar = () => {
       </div>
     </div>
   );
-};
+}
