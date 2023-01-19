@@ -1,6 +1,5 @@
 import './App.css';
 import BirthdayInput from './components/BirthdayInput';
-import Calendar from './components/BirthdayInput';
 
 function App() {
   return (

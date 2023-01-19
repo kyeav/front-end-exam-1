@@ -9,17 +9,15 @@ import {
   isEqual,
   isSameMonth,
   isToday,
-  setMonth,
   setYear,
   startOfDecade,
   startOfMonth,
   startOfToday,
   startOfWeek,
-  startOfYear,
   subMonths,
   subYears,
 } from 'date-fns';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const classNames = (...classes: (string | boolean)[]) => classes.filter(Boolean).join(' ');
 
@@ -64,15 +62,41 @@ export default function BirthdayInput(): JSX.Element {
     isSelected: boolean;
   }
 
-  const yearsPicker = () => {
+  // const yearsPicker = () => {
+  //   const startYear = startOfDecade(currentYear).getFullYear() + 1;
+  //   // console.log(startYear);
+
+  //   const arrayOfYear: Year[][] = Array.from(Array(5), () => new Array<Year>(4));
+  //   // console.log(arrayOfYear);
+
+  //   for (let i = 0; i < 5; i += 1) {
+  //     for (let j = 0; j < 4; j += 1) {
+  //       const yr = startYear + i * 4 + j;
+  //       // console.log(yr);
+
+  //       arrayOfYear[i][j] = {
+  //         year: yr,
+  //         isSelected: currentMonth.getFullYear() === yr,
+  //       };
+  //     }
+  //   }
+
+  //   setYears(arrayOfYear);
+  // };
+
+  // useEffect(() => {
+  //   yearsPicker();
+  // }, [currentYear]);
+
+  const yearsPicker = useCallback(() => {
     const startYear = startOfDecade(currentYear).getFullYear() + 1;
     // console.log(startYear);
 
     const arrayOfYear: Year[][] = Array.from(Array(5), () => new Array<Year>(4));
     // console.log(arrayOfYear);
 
-    for (let i = 0; i < 5; i++) {
-      for (let j = 0; j < 4; j++) {
+    for (let i = 0; i < 5; i += 1) {
+      for (let j = 0; j < 4; j += 1) {
         const yr = startYear + i * 4 + j;
         // console.log(yr);
 
@@ -84,11 +108,11 @@ export default function BirthdayInput(): JSX.Element {
     }
 
     setYears(arrayOfYear);
-  };
+  }, [currentYear, currentMonth]);
 
   useEffect(() => {
     yearsPicker();
-  }, [currentYear]);
+  }, [yearsPicker]);
 
   const [showCalendar, setShowCalendar] = useState(false);
 
@@ -168,8 +192,8 @@ export default function BirthdayInput(): JSX.Element {
           {showYearPicker ? (
             // year picker
             <div className="text-white mt-[33px] font-[400] text-[16px] leading-[24px] text-center">
-              {years.map((row, idx) => (
-                <div key={idx} className="grid grid-cols-4 mx-[24px] mb-[35px]">
+              {years.map((row) => (
+                <div key={row[0].year} className="grid grid-cols-4 mx-[24px] mb-[35px]">
                   {row.map((col: Year) => (
                     <button
                       type="button"
