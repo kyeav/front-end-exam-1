@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* custom classnames */
+@layer components {
+  .icon {
+    @apply mr-[12px] h-[20px] inline-block;
+  }
+
+  .check-circle-icon-solid {
+    @apply text-[#00d1ff];
+  }
+
+  .check-circle-icon-outline {
+    @apply text-[#565656];
+  }
+}

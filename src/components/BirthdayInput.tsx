@@ -265,7 +265,14 @@ export default function BirthdayInput(): JSX.Element {
 
           {/* footer */}
           <div className="text-white mb-[24px] flex justify-end font-[600] text-[14px] leading-[24px]">
-            <button onClick={() => setShowCalendar(false)} type="button" className="mr-[70px]">
+            <button
+              onClick={() => {
+                setBirthday('');
+                setShowCalendar(false);
+              }}
+              type="button"
+              className="mr-[70px]"
+            >
               Cancel
             </button>
             <button
