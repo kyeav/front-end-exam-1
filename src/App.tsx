@@ -1,10 +1,11 @@
 import './App.css';
-import Calendar from './components/Calendar';
+import BirthdayInput from './components/BirthdayInput';
+import Calendar from './components/BirthdayInput';
 
 function App() {
   return (
-    <div className="h-screen bg-[#181818] flex flex-col items-center p-[50px]">
-      <Calendar />
+    <div className="h-screen bg-[#181818] flex flex-col p-[50px]">
+      <BirthdayInput />
     </div>
   );
 }
