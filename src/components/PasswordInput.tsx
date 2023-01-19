@@ -14,16 +14,16 @@ export default function PasswordInput() {
   const [lengthValidated, setLengthValidated] = useState(false);
 
   const handleChange = (value: string) => {
-    console.log(value);
+    // console.log(value);
 
     setPassword(value);
 
     // regex
-    const upper = new RegExp('[A-Z]');
-    const lower = new RegExp('[a-z]');
-    const number = new RegExp('[0-9]');
-    const special = new RegExp('[^a-zA-Z0-9]', 'g');
-    const length = new RegExp('(?=.{9,})');
+    const upper = /[A-Z]/;
+    const lower = /[a-z]/;
+    const number = /[0-9]/;
+    const special = /[^a-zA-Z0-9]/g;
+    const length = /(?=.{9,})/;
 
     // uppercase validation
     if (upper.test(value)) {
