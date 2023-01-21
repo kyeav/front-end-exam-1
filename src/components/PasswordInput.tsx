@@ -60,7 +60,7 @@ export default function PasswordInput() {
   };
 
   return (
-    <div className="mb-[24px] relative">
+    <div className="password-input mb-[24px] relative">
       {/* input field */}
       <input
         type="password"

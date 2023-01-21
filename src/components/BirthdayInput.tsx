@@ -76,7 +76,7 @@ export default function BirthdayInput(): JSX.Element {
   const [birthday, setBirthday] = useState('');
 
   return (
-    <div className="relative">
+    <div className="birthday-input relative">
       {/* input field */}
       <input
         type="text"
