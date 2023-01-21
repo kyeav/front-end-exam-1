@@ -88,7 +88,7 @@ export default function BirthdayInput(): JSX.Element {
         //   handleChange(e.target.value);
         // }}
       />
-      <span className="text-[#fff] text-[12px] absolute left-0 top-[16px] mx-[15px] px-1 input-text bg-[#181818] -translate-y-[24px] -translate-x-0 leading-[18px] tracking-[0.4px]">
+      <span className="input-span text-[#fff] text-[12px] absolute left-0 top-[16px] mx-[15px] px-1 input-text bg-[#181818] -translate-y-[24px] -translate-x-0 leading-[18px] tracking-[0.4px]">
         Birthday
       </span>
 

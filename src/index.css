@@ -23,4 +23,12 @@
   .birthday-input {
     font-family: 'Inter', sans-serif;
   }
+
+  .input-field {
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .input-span {
+    font-family: 'Ubuntu', sans-serif;
+  }
 }
