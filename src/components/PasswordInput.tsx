@@ -14,8 +14,6 @@ export default function PasswordInput() {
   const [lengthValidated, setLengthValidated] = useState(false);
 
   const handleChange = (value: string) => {
-    // console.log(value);
-
     setPassword(value);
 
     // regex

@@ -23,82 +23,39 @@ const classNames = (...classes: (string | boolean)[]) => classes.filter(Boolean)
 
 export default function BirthdayInput(): JSX.Element {
   const today = startOfToday();
-  // console.log(today);
 
   const [currentMonth, setCurrentMonth] = useState(today);
-  // console.log(currentMonth);
-
-  // console.log(format(currentMonth, 'MMM, yyyy'));
-  // console.log(format(currentMonth, 'MMMM yyyy'));
 
   const firstDayCurrentMonth = startOfMonth(currentMonth);
-  // console.log(firstDayCurrentMonth);
 
   const lastDayOfCurrentMonth = endOfMonth(currentMonth);
-  // console.log(lastDayOfCurrentMonth);
 
   const days = eachDayOfInterval({
     start: startOfWeek(firstDayCurrentMonth),
     end: endOfWeek(lastDayOfCurrentMonth),
   });
 
-  // console.log(days);
-  // console.log(startOfWeek(firstDayCurrentMonth));
-  // console.log(endOfWeek(lastDayOfCurrentMonth));
-
   const [selectedDay, setSelectedDay] = useState(today);
-  // console.log(selectedDay);
 
   const [showYearPicker, setShowYearPicker] = useState(false);
 
   const [years, setYears] = useState<Year[][]>([]);
-  // console.log(years);
 
   const [currentYear, setCurrentYear] = useState(today);
-  // console.log(currentYear);
 
   interface Year {
     year: number;
     isSelected: boolean;
   }
 
-  // const yearsPicker = () => {
-  //   const startYear = startOfDecade(currentYear).getFullYear() + 1;
-  //   // console.log(startYear);
-
-  //   const arrayOfYear: Year[][] = Array.from(Array(5), () => new Array<Year>(4));
-  //   // console.log(arrayOfYear);
-
-  //   for (let i = 0; i < 5; i += 1) {
-  //     for (let j = 0; j < 4; j += 1) {
-  //       const yr = startYear + i * 4 + j;
-  //       // console.log(yr);
-
-  //       arrayOfYear[i][j] = {
-  //         year: yr,
-  //         isSelected: currentMonth.getFullYear() === yr,
-  //       };
-  //     }
-  //   }
-
-  //   setYears(arrayOfYear);
-  // };
-
-  // useEffect(() => {
-  //   yearsPicker();
-  // }, [currentYear]);
-
   const yearsPicker = useCallback(() => {
     const startYear = startOfDecade(currentYear).getFullYear() + 1;
-    // console.log(startYear);
 
     const arrayOfYear: Year[][] = Array.from(Array(5), () => new Array<Year>(4));
-    // console.log(arrayOfYear);
 
     for (let i = 0; i < 5; i += 1) {
       for (let j = 0; j < 4; j += 1) {
         const yr = startYear + i * 4 + j;
-        // console.log(yr);
 
         arrayOfYear[i][j] = {
           year: yr,
@@ -215,11 +172,11 @@ export default function BirthdayInput(): JSX.Element {
             </div>
           ) : (
             // month picker
-            <div className="grid grid-cols-7 mt-[24px] mx-[16px] font-[400] text-[14px] leading-[20.02px] tracking-[0.15px] text-center">
+            <div className="grid grid-cols-7 mt-[20px] mx-[16px] font-[400] text-[14px] leading-[20.02px] tracking-[0.15px] text-center">
               {/* days */}
               {days.map((day) => (
                 // day
-                <div key={day.toString()} className="pb-[12px]">
+                <div key={day.toString()} className="pb-[8px]">
                   <button
                     type="button"
                     onClick={() => setSelectedDay(day)}
@@ -264,7 +221,7 @@ export default function BirthdayInput(): JSX.Element {
           )}
 
           {/* footer */}
-          <div className="text-white mb-[24px] flex justify-end font-[600] text-[14px] leading-[24px]">
+          <div className="text-white flex justify-end font-[600] text-[14px] leading-[24px]">
             <button
               onClick={() => {
                 setBirthday('');
