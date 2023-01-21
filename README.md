@@ -1,6 +1,6 @@
-# Vite + React + TypeScript + Airbnb + Husky = 🔥
+# Front-End-Exam-1
 
-A modern minimal Vite + React + TypeScript template with pre-configured ESLint (with Airbnb JS/React rules), Prettier and Git hooks powered by Husky out of the box 📦
+A modern minimal Vite + React + TypeScript app with pre-configured ESLint (with Airbnb JS/React rules), Prettier and Git hooks powered by Husky out of the box.
 
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -8,25 +8,9 @@ A modern minimal Vite + React + TypeScript template with pre-configured ESLint (
 ![ESLint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 
-![Screenshot](https://i.ibb.co/Trm88qJ/screenshot.png)
-
-## Features
-
-- 🦾 Up to date libraries version and their features
-- 🔎 Pre-configured and extensible ESLint configuration without wrong and unused rules designed for old React versions
-- 💅 Pre-configured and extensible Prettier configuration
-- 🔬 Git hooks for code formatting and linting pre-commit
-
 ## Usage
 
 ```bash
-npx degit alessandropisu/vite-react-ts-minimal-template my-app
-
-cd my-app
-
-# Required if you want a repository and work with Git hooks
-git init
-
 yarn install
 
 yarn dev
